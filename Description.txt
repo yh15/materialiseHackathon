@@ -1,0 +1,3 @@
+BrailleHub
+
+A web platform where educators can input information that will be translated to braille and also print out 3D models and braille.
