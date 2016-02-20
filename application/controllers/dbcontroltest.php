@@ -11,3 +11,4 @@ class dbcontroltest extends CI_Controller {
 				
         }
 }
+?>

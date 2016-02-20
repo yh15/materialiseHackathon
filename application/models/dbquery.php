@@ -22,3 +22,4 @@ class dbquery extends CI_Model {
 				}
         }
 }
+?>
