@@ -8,20 +8,24 @@ class dbquery extends CI_Model {
 		}
 		
 		
-        public function dbsearch($name)
-        {		$this->db->select('*');
-				$this->db->from('datatable');
-				$this->db->like('ob_name',$name);
-				$query = $this->db->get();
+        public function searchByName($searchterm)
+        {		
+			$this->db->select('*');
+			$this->db->from('datatable');
+			$this->db->like('ob_name',$searchterm);
+			$query = $this->db->get();
 				
-				return $query->result();
+			return $query->result();
 
-				/*foreach ($query->result() as $row)
-				{	//no new line
-					echo $row->ob_name;
-					echo $row->id;
-					echo $row->category;
-				}*/
         }
+		public function searchByCat($searchterm)
+		{
+			$this->db->select('*');
+			$this->db->from('datatable');
+			$this->db->like('category',$searchterm);
+			$query = $this->db->get();
+				
+			return $query->result();
+		}
 }
 ?>

@@ -3,12 +3,19 @@ class dbcontroltest extends CI_Controller {
 
         public function index()
         {
-                $this->load->database();
 				$this->load->model('dbquery');
-				$name = 'apple';
+				$searchterm = 'orange'; //term to search
+				$sel = 'name'; //name:name, cat:category
 				
-				$data['results'] = $this->dbquery->dbsearch($name);
-				$this->load->view('dbview',$data);
+				if($sel=='name'){
+					$data['results'] = $this->dbquery->searchByName($searchterm);
+					$this->load->view('dbview',$data);
+				}
+				else if($sel=='cat')
+				{
+					$data['results'] = $this->dbquery->searchByCat($searchterm);
+					$this->load->view('dbview',$data);
+				}
         }
 }
 ?>

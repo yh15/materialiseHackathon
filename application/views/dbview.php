@@ -11,7 +11,7 @@
 			echo  'Name:'.$row->ob_name . '<br />';
 			echo  'Category:'.$row->category . '<br />';
 		}
-		?>
+		?>	
 	</p>
 </body>
 </html>
