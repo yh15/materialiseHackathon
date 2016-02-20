@@ -2,7 +2,7 @@
 /* CSS Document */
 
 
-<!--Styling for the main page-->
+<!--Styling for the web pages-->
 .bg-1{
 	color:#FFFFFF;
 	background-color:#0080C0;
@@ -26,7 +26,7 @@
 	position:relative;
 	width: 100%;
 	padding: 10px;
-	color: #FFF;
+	color: #666;
 }
 
 .layout{
@@ -43,3 +43,73 @@
 	background-color:#FFF;
 }
 
+.display-area{
+	padding: 20px 0px 20px 0px;
+}
+
+.textarea{
+	font: Verdana, Geneva, sans-serif;
+	font-size:14px;
+	font-style:inherit;
+	color:#333;
+	resize:none !important;
+	padding: 10px 10px 10px 10px;
+	margin: 10px 20;
+	width: 800px;
+	height: 200px;
+	border: 2px solid #999;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+}
+
+.img-display-area{
+	font: Verdana, Geneva, sans-serif;
+	font-size:14px;
+	font-style:inherit;
+	color:#333;
+	resize:none !important;
+	padding: 10px 10px 10px 10px;
+	margin: 10px 20;
+	width: 800px;
+	height: 200px;
+	border: 2px solid #999;
+	box-shadow:inset #666 10px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+}
+
+
+.btn-align{
+	position: absolute;
+	color: #FFF;
+	float: right;
+}
+
+
+.container-des{
+	margin:auto;
+	padding: 0px;
+}
+
+.separator{
+	padding-top: 30px;
+	width: auto;
+	height: 80px;
+	background-color:#06F;
+	overflow:hidden;	
+}
+
+
+<!--Class area -->
+#desc{
+	font: inherit;
+	color: #666;
+}
