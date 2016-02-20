@@ -7,6 +7,8 @@ class dbcontroltest extends CI_Controller {
 				$searchterm = $_POST["term"]; //term to search
 				$sel = $_POST["type"]; //name:name, cat:category
 				
+				$this->load->view('dbsearch');
+				
 				if($sel=='name'){
 					$data['results'] = $this->dbquery->searchByName($searchterm);
 					$this->load->view('dbview',$data);
