@@ -9,12 +9,11 @@ class dbquery extends CI_Model {
 		
 		
         public function dbsearch($name)
-        {		$this->db->select('ob_name','id','category');
+        {		$this->db->select('*');
 				$this->db->from('datatable');
 				$this->db->like('ob_name',$name);
 				$query = $this->db->get();
 
-				echo $query;
 				foreach ($query->result() as $row)
 				{	//no new line
 					echo $row->ob_name;
