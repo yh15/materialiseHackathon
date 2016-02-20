@@ -12,7 +12,7 @@ class dbquery extends CI_Model {
         {		
 			$this->db->select('*');
 			$this->db->from('datatable');
-			$this->db->like('ob_name',$searchterm);
+			$this->db->like('ob_name',strtolower($searchterm));
 			$query = $this->db->get();
 				
 			return $query->result();
