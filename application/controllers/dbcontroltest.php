@@ -7,8 +7,8 @@ class dbcontroltest extends CI_Controller {
 				$this->load->model('dbquery');
 				$name = 'apple';
 				
-				$this->dbquery->dbsearch($name);
-				
+				$data['results'] = $this->dbquery->dbsearch($name);
+				$this->load->view('dbview',$data);
         }
 }
 ?>

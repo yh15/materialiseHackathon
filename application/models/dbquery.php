@@ -13,13 +13,15 @@ class dbquery extends CI_Model {
 				$this->db->from('datatable');
 				$this->db->like('ob_name',$name);
 				$query = $this->db->get();
+				
+				return $query->result();
 
-				foreach ($query->result() as $row)
+				/*foreach ($query->result() as $row)
 				{	//no new line
 					echo $row->ob_name;
 					echo $row->id;
 					echo $row->category;
-				}
+				}*/
         }
 }
 ?>
