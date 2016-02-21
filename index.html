@@ -73,20 +73,20 @@
                  <!--Change the label!-->
                  <form action="dbcontroltest">
                      <div class="col-lg-2" style="padding:0;">
-                         <button class="btn btn-default" type="button" style="width:100%">Search</button> 
+                         <button class="btn btn-default" type="submit" style="width:100%; height:40px">Search</button> 
                      </div>
-                     <div class="col-lg-8" style="padding:0;">
+                     <div class="col-lg-10" style="padding:0;">
 
 
-                      <input id="searchInput" type="text" name="SearchInfo" value="" style="width:100%; height:35px; font: Verdana, Geneva, sans-serif;
+                      <input id="searchInput" type="text" name="SearchInfo" value="" style="width:100%; height:40px; font: Verdana, Geneva, sans-serif;
                       font-size:14px;">
+                      </form>
+                       
                   </div>
-              </form>
-              <div class="col-lg-2" style="padding:0; width:100%;">
-                 <button id="start_button" onclick="startButton(event)">
-                  <img id="start_img" src="http://localhost/materialiseHackathon/resources/graphic/mic.gif" alt="Start">
+              <button id="start_button" onclick="startButton(event)">
+                  <img id="start_img" src="http://localhost/materialiseHackathon/resources/graphic/mic.gif" alt="Start" >
               </button>
-          </div>
+              
       </span>
   </div><!--//input-group-btn-->
 </div><!--//input-group-->
@@ -181,7 +181,7 @@ function startButton(event) {
   ignore_onend = false;
   final_span.innerHTML = '';
   interim_span.innerHTML = '';
-  start_img.src = 'mic-slash.gif';
+  start_img.src = 'http://localhost/materialiseHackathon/resources/graphic/mic-slash.gif';
   showInfo('info_allow');
   showButtons('none');
   start_timestamp = event.timeStamp;
