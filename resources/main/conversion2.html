@@ -9,7 +9,13 @@
  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script src="../js/three.min.js"></script>
     <script src="../js/OrbitControls.js"></script>
-    
+    <script src="../js/Braille.js"></script>
+<!--
+function BrailleText() {
+var message = document.getElementById("Textbox1").value;
+document.getElementById('myBraille').innerHTML=Braille(message);
+}
+// -->
         
     
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
@@ -82,17 +88,21 @@
         
 	        <!--Text display area-->
     	    <div class="display-area">
-            	<textarea class="textarea" draggable="false"></textarea>
+            	<textarea class="textarea1" draggable="false"> placeholder="<?php echo file_get_contents($article);?>"></textarea>
+        <P><span id="myBraille"></span></P>
+            </div><!--//End of display-area-->
             </div><!--//End of display-area-->
             
             
+
             <div class="print-btn">
             	<button type="button" class="btn btn-primary btn-align" data-toggle="button" aria-pressed="false" autocomplete="off">
                 3D Print</button>
             </div>
     </div><!--//Container-->
     
-    
+
+
     
     <!--Displaying the images-->
   <div class="container-fluid">

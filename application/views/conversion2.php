@@ -21,8 +21,14 @@
 
  
 	<title>BRAILLE3D&reg;</title>
-    
-</head>
+    <script src="http://localhost/materialiseHackathon/resources/js/Braille.js"></script>
+	<script language="javascript">
+	function BrailleText() {
+	var message = document.getElementById("Textbox1").value;
+	document.getElementById('myBraille').innerHTML=Braille(message);
+	}
+</script>
+	</head>
 
 <!-- Script for the main texts -->
 <body>
@@ -61,10 +67,9 @@
     <!-- Text conversion tools -->
     <div class="container">
     	<div class="container-des">  <!--PLEASE INCLUDE THIS CLASS IN STYLE.HTML-->
-    		<h1>Maintitle</h1>
+    		<h1>Content Page</h1>
             <br><br><!--Line breaks-->
-            <h4>Secondment title here</h4>
-            <p>Insert your simple desc on how to make char kueh teow</p>
+            
         </div><!--//container-des-->    
     </div><!--//container-fluid-->    
     
@@ -75,20 +80,21 @@
                         
     		<!--Action button-->
             <div class="btn-group" role="group" aria-label="..." style="float: inherit;">
-            	<button type="button" class="btn btn-primary" title="Insert description here: Naan Cheese">Option 1</button>
-                <button type="button" class="btn btn-default" title="Insert description here: Mamak">Option 2</button>
-                <button type="button" class="btn btn-default" title="Insert description here: Satay">Option 3</button>
+            	<button type="button" class="btn btn-primary" title="Insert description here: Naan Cheese">Text</button>
+                <button type="button" class="btn btn-default" title="Insert description here: Mamak" onclick="javascript:BrailleText()">Braille</button>
+                <!--<button type="button" class="btn btn-default" title="Insert description here: Satay">Option 3</button>-->
             </div>     
         
 	        <!--Text display area-->
     	    <div class="display-area">
-            	<textarea class="textarea" draggable="false" placeholder="<?php echo file_get_contents($article);?>"></textarea>
+            	<textarea class="textarea" id="Textbox1" draggable="false" placeholder="<?php echo file_get_contents($article);?>"></textarea>
+				<P><span id="myBraille"></span></P>
             </div><!--//End of display-area-->
             
             
             <div class="print-btn">
-            	<button type="button" class="btn btn-primary btn-align" data-toggle="button" aria-pressed="false" autocomplete="off">
-                3D Print</button>
+            	<!--<button type="button" class="btn btn-primary btn-align" data-toggle="button" aria-pressed="false" autocomplete="off">
+                3D Print</button>-->
             </div>
     </div><!--//Container-->
     
@@ -98,72 +104,14 @@
   <div class="container-fluid">
     	<!--Descriptions-->
         <div class="container-des">
-        	<h4>Insert second title here</h4>
-        	<p>How do you describe the flavour of nasi dagang to ang mo? Add in description for 3D image rendering here</p>
+        	<h4>3D Image</h4>
+        	
         </div><!--// End of the container-fluid class-->
         
         
     	<!--Displaying the image area-->
-        <!--Implementing the 3D API-->
-        <div class="display-area">
-            <div class="img-container">
-            
-                        <!--3D Controll Graphic Script -->
-            <script>//<![CDATA[
-                
-                            // Set up the scene, camera, and renderer as global variables.
-                    var scene, camera, renderer;
-                    
-                    init();
-                    animate();
-                    
-                    // Sets up the scene.
-                    function init() {
-                      // Create the scene and set the scene size.
-                      scene = new THREE.Scene();
-                      var WIDTH = 400,
-                          HEIGHT = 300;
-                    
-                      // Create a renderer and add it to the DOM.
-                      renderer = new THREE.WebGLRenderer({antialias:true});
-                      renderer.setSize(WIDTH, HEIGHT);
-                      document.body.appendChild(renderer.domElement);
-                      renderer.domElement.id = "context"
-                    
-                      // Create a camera, zoom it out from the model a bit, and add it to the scene.
-                      camera = new THREE.PerspectiveCamera(45, WIDTH / HEIGHT, 0.1, 20000);
-                      camera.position.set(0,6,0);
-                      scene.add(camera);
-                    
-                      // Create a light, set its position, and add it to the scene.
-                      var light = new THREE.PointLight(0xffffff);
-                      light.position.set(-100,200,100);
-                      scene.add(light);
-                    
-                      // Add a white PointLight to the scene.
-                      var loader = new THREE.JSONLoader();
-                      loader.load( '', function(geometry){ // ADD SCRIPT TO GRAB RELATIVE IMAGE ENTRY FROM DATABASE
-                        var material = new THREE.MeshLambertMaterial({color: 0x55B663});
-                        mesh = new THREE.Mesh( geometry, material);
-                        scene.add(mesh);
-                      });
-                    
-                      // Add OrbitControls so that we can pan around with the mouse.
-                      controls = new THREE.OrbitControls(camera, renderer.domElement);
-                    }
-                    
-                    // Renders the scene and updates the render as needed.
-                    function animate() {
-                      requestAnimationFrame( animate );
-                      renderer.render( scene, camera );
-                      controls.update();
-                    }
-            </script>
-            
-            
-            
-            </div>
-        </div><!--End of image display area-->
+        <!--Implementing the 3D API-->	
+        
         
         
         <div class="print-btn">
