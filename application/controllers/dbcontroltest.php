@@ -19,7 +19,7 @@ class dbcontroltest extends CI_Controller {
 				if($sel=='name'){
 					$data = $this->dbquery->searchByName($searchterm);
 					if (isset($data)){
-						$url = 'http://localhost/materialiseHackathon/'.$data.'.txt';
+						$url = 'http://localhost/materialiseHackathon/index.php/resultcontrol?article='.$data.'.txt';
 						redirect($url);
 					}
 					else{

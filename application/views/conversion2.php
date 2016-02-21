@@ -82,7 +82,7 @@
         
 	        <!--Text display area-->
     	    <div class="display-area">
-            	<textarea class="textarea" draggable="false"></textarea>
+            	<textarea class="textarea" draggable="false" placeholder="<?php echo file_get_contents($article);?>"></textarea>
             </div><!--//End of display-area-->
             
             
