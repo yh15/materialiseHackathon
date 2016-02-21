@@ -10,12 +10,18 @@ class dbquery extends CI_Model {
 		
         public function searchByName($searchterm)
         {		
-			$this->db->select('*');
+			$this->db->select('ar_loc');
 			$this->db->from('datatable');
-			$this->db->like('ob_name',$searchterm);
+			$this->db->where('ob_name',$searchterm);
 			$query = $this->db->get();
-				
-			return $query->result();
+			
+			if ($query->num_rows() > 0){
+				$data = array_shift($query->result_array());
+				return $data['ar_loc'];
+			}
+			else{
+			return NULL;
+    }	
 
         }
 		public function searchByCat($searchterm)

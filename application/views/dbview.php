@@ -7,7 +7,7 @@
 		<p>
 		<?php foreach($results as $row)
 		{	
-			echo '<a href="'.$row->ar_loc.'">';
+			echo '<a href="'.$row->ar_loc.'.txt">';
 			echo  'ID:'.$row->id . '<br />';
 			echo  'Name:'.$row->ob_name . '<br />';
 			echo  'Category:'.$row->category . '<br />';
