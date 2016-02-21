@@ -28,68 +28,69 @@
 
     <nav class="navbar navbar-default navbar-fixed-top"> 
     	<div class="container">
-           <div class="navbar-header">
-               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navBar">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-              </button>
+         <div class="navbar-header">
+             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navBar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
 
-              <!--Navigation bar-->
-              <a class="navbar-brand" href="#">NOTTINGHAM TEAM</a>
-          </div><!--//navbar-header-->
+          <!--Navigation bar-->
+          <a class="navbar-brand" href="#">NOTTINGHAM TEAM</a>
+      </div><!--//navbar-header-->
 
-          <div class="collapse navbar-collapse" id="navBar">
-              <ul class="nav navbar-nav navbar-right">
-                 <li><a href="#">TEXT</a></li>
-                 <li><a href="#">IMAGE</a></li>
-                 <li><a href="#">OTHERS</a></li>
-             </ul>
-         </div> <!--//collapse-->               
-     </div> <!--//container-->
- </nav>   
-
-
-
- <!--Major content sections-->
- <div class="container"> <!--Setting the whole margin-->
+      <div class="collapse navbar-collapse" id="navBar">
+          <ul class="nav navbar-nav navbar-right">
+           <li><a href="#">TEXT</a></li>
+           <li><a href="#">IMAGE</a></li>
+           <li><a href="#">OTHERS</a></li>
+       </ul>
+   </div> <!--//collapse-->               
+</div> <!--//container-->
+</nav>   
 
 
 
+<!--Major content sections-->
+<div class="container"> <!--Setting the whole margin-->
 
 
-   <div class="container-fluid bg-1 text-center">
-       <div class="img-responsive center-block" style="padding-top: 5%; padding-bottom:0%"> 
-           <img src="http://localhost/materialiseHackathon/resources/graphic/main_index.png" alt="Welcome" width="400" height="300">
-       </div><!--//End of container fluid-->
-   </div><!--//Img-responsive-->
 
-   <!--Search bar section-->
-   <div class="container-fluid">
+
+
+ <div class="container-fluid bg-1 text-center">
+     <div class="img-responsive center-block" style="padding-top: 5%; padding-bottom:0%"> 
+         <img src="http://localhost/materialiseHackathon/resources/graphic/main_index.png" alt="Welcome" width="400" height="300">
+     </div><!--//End of container fluid-->
+ </div><!--//Img-responsive-->
+
+ <!--Search bar section-->
+ <div class="container-fluid">
     <div class="row">
-       <div class="col-lg-8, col-lg-offset-2 ">
-           <div class="input-group" style="padding-right: 15%;">
-               <span class="input-group-btn">
-                   <!--Change the label!-->
-                   <div class="col-lg-2" style="padding:0;">
-                       <button class="btn btn-default" type="button" style="width:100%">Search</button> 
-                   </div>
-                   <div class="col-lg-8" style="padding:0;">
-                       <div id="results" style="padding:0;">
-                          <span id="final_span" class="final"></span>
-                          <span id="interim_span" class="interim"></span>
-                          <p></p>
-                      </div>
+     <div class="col-lg-8, col-lg-offset-2 ">
+         <div class="input-group" style="padding-right: 15%;">
+             <span class="input-group-btn">
+                 <!--Change the label!-->
+                 <form action="dbcontroltest">
+                     <div class="col-lg-2" style="padding:0;">
+                         <button class="btn btn-default" type="button" style="width:100%">Search</button> 
+                     </div>
+                     <div class="col-lg-8" style="padding:0;">
+
+
+                      <input id="searchInput" type="text" name="SearchInfo" value="" style="width:100%; height:35px; font: Verdana, Geneva, sans-serif;
+                      font-size:14px;">
                   </div>
-                  <div class="col-lg-2" style="padding:0; width:100%;">
-                   <button id="start_button" onclick="startButton(event)">
-                      <img id="start_img" src="http://localhost/materialiseHackathon/resources/graphic/mic.gif" alt="Start">
-                    </button>
-                  </div>
-              </span>
-          </div><!--//input-group-btn-->
-      </div><!--//input-group-->
-  </div><!--//col-lg-6-->
+              </form>
+              <div class="col-lg-2" style="padding:0; width:100%;">
+                 <button id="start_button" onclick="startButton(event)">
+                  <img id="start_img" src="http://localhost/materialiseHackathon/resources/graphic/mic.gif" alt="Start">
+              </button>
+          </div>
+      </span>
+  </div><!--//input-group-btn-->
+</div><!--//input-group-->
+</div><!--//col-lg-6-->
 
 
 </div>
@@ -119,41 +120,41 @@
     <!--Adjustting the footer-->
     <div class="container-fluid">
     	<div class="footer-block">
-           <h6>Created by NottsTeam &copy;2014. All rights reserved.</h6>
-       </div><!--//footer-block-->
-   </div><!--//container-->
+         <h6>Created by NottsTeam &copy;2014. All rights reserved.</h6>
+     </div><!--//footer-block-->
+ </div><!--//container-->
 
-   <script>
-      var final_transcript = '';
-      var recognizing = false;
-      var ignore_onend;
-      var start_timestamp;
+ <script>
+  var final_transcript = '';
+  var recognizing = false;
+  var ignore_onend;
+  var start_timestamp;
 
-      if (!('webkitSpeechRecognition' in window)) {
-        upgrade();
-    } else {
-        start_button.style.display = 'inline-block';
-        var recognition = new webkitSpeechRecognition();
-        recognition.continuous = false;
-        recognition.interimResults = true;
-        recognition.onstart = function() {
-          recognizing = true;
-          showInfo('info_speak_now');
-      };
-      recognition.onresult = function(event) {
-          var interim_transcript = '';
-          for (var i = event.resultIndex; i < event.results.length; ++i) {
-            if (event.results[i].isFinal) {
-              final_transcript += event.results[i][0].transcript;
-          } else {
-              interim_transcript += event.results[i][0].transcript;
-          }
-      }
-      final_transcript = capitalize(final_transcript);
-      final_span.innerHTML = final_transcript;
-      interim_span.innerHTML = interim_transcript;
-
+  if (!('webkitSpeechRecognition' in window)) {
+    upgrade();
+} else {
+    start_button.style.display = 'inline-block';
+    var recognition = new webkitSpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = true;
+    recognition.onstart = function() {
+      recognizing = true;
+      showInfo('info_speak_now');
   };
+  recognition.onresult = function(event) {
+      var interim_transcript = '';
+      for (var i = event.resultIndex; i < event.results.length; ++i) {
+        if (event.results[i].isFinal) {
+          final_transcript += event.results[i][0].transcript;
+      } else {
+          interim_transcript += event.results[i][0].transcript;
+      }
+  }
+  final_transcript = capitalize(final_transcript);
+   document.getElementById("searchInput").value=final_transcript;
+  interim_span.innerHTML = interim_transcript;
+
+};
 }
 function upgrade() {
     start_button.style.visibility = 'hidden';
